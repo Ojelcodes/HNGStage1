@@ -10,11 +10,12 @@ namespace BackendStageOneTask.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProfile([FromQuery] string slackName, [FromQuery] string track)
         {
-            var Current_day = DateTime.UtcNow/*.AddHours()*/;
-            var gitHubFileUrl = $"https://github.com/Ojelcode";
+            var Current_day = DateTime.UtcNow;
+            var gitHubFileUrl = $"https://github.com/Ojelcodes/HNGStage1.git";
 
-            // Get the GitHub URL of the full source code
-            var gitHubSourceUrl = "https://github.com/Ojelcode/YourRepo";
+            
+            var gitHubSourceUrl = "https://github.com/Ojelcode/HNGStage1";
+            int  StatusCode = 200;
 
             var profile = new
             {
@@ -23,16 +24,18 @@ namespace BackendStageOneTask.Controllers
                 CurrentUTCTime = Current_day,
                 Track = track,
                 GitHubFileUrl = gitHubFileUrl,
-                GitHubSourceUrl = gitHubSourceUrl
+                GitHubSourceUrl = gitHubSourceUrl,
+                Staus_code= StatusCode,
             };
 
-            return Json(profile);
+             return Json(profile);
 
 
         }
 
     }
 }
+
 
 
 
